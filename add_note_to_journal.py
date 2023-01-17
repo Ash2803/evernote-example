@@ -1,11 +1,10 @@
 #!/usr/bin/env python 
-from datetime import date, datetime, timedelta
 import argparse
 import json
+from datetime import date, datetime, timedelta
 
 from evernote.api.client import EvernoteClient
 from config import Settings
-
 
 WEEK_DAYS = {
     1: u'понедельник',
@@ -23,7 +22,6 @@ def is_valid_date(text):
     if text.startswith('-') or text.startswith('+') or text.isdigit():
         return date.today() + timedelta(days=int(text))
     try:
-
         return datetime.strptime(text, "%Y-%m-%d").date()
     except ValueError:
         msg = "Not a valid date: '{0}'.".format(text)
@@ -42,7 +40,7 @@ if __name__ == '__main__':
 
     client = EvernoteClient(
         token=config.EVERNOTE_PERSONAL_TOKEN,
-        sandbox=False # Default: True
+        sandbox=False  # Default: True
     )
     noteStore = client.get_note_store()
 
@@ -59,6 +57,6 @@ if __name__ == '__main__':
     utitle = utitle_without_comment.strip().format(**context)
     new_note.title = utitle.encode('utf8')
     noteStore.updateNote(new_note)
-    
+
     print(u'Note created: %s' % utitle)
     print('Done')

@@ -3,7 +3,6 @@ from evernote.api.client import EvernoteClient
 
 from config import Settings
 
-    
 if __name__ == '__main__':
     config = Settings()
     client = EvernoteClient(
