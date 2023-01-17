@@ -1,9 +1,11 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
+# coding=utf-8
 import argparse
 import json
 from datetime import date, datetime, timedelta
 
 from evernote.api.client import EvernoteClient
+
 from config import Settings
 
 WEEK_DAYS = {
@@ -40,7 +42,7 @@ if __name__ == '__main__':
 
     client = EvernoteClient(
         token=config.EVERNOTE_PERSONAL_TOKEN,
-        sandbox=False  # Default: True
+        sandbox=config.SANDBOX
     )
     noteStore = client.get_note_store()
 

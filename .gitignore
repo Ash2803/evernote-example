@@ -3,7 +3,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-bin
+evernote-env
 .DS_store
 pyvenv.cfg
 # C extensions
